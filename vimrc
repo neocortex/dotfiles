@@ -10,6 +10,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'flazz/vim-colorschemes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -84,3 +85,15 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Show name of current file in status line
+set ls=2
+
+" Enable python indentation
+let g:pymode_indent = 1
+
+" Close preview window after autocompletion
+autocmd CompleteDone * pclose
+
+" Set colorscheme
+colorscheme torte
