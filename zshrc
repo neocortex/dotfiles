@@ -1,3 +1,6 @@
+# Start terminal in tmux
+if [ "$TMUX" = "" ]; then tmux -2; fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=/home/rafael/.oh-my-zsh
 
@@ -85,10 +88,23 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Resmio IPython alias
-alias ripython='python /home/rafael/resmio/resmio/manage.py shell_plus --pythonpath=/home/rafael/resmio/resmio'
+alias ripython='python $HOME/resmio/resmio/manage.py shell_plus --pythonpath=/home/rafael/resmio/resmio'
 
 # Run resmio local server
-alias runresmio='/home/rafael/resmio/resmio/manage.py runserver 0.0.0.0:8000'
+alias runresmio='$HOME/resmio/resmio/manage.py runserver 0.0.0.0:8000'
+
+# Run web container for landingpages
+alias runlpages='cd $HOME/resmio/landingpages; docker run -it --volume=$PWD:/src --link landingpages-db:db -p 5000:5000 web:latest python3 run.py'
+alias testlpages='cd $HOME/resmio/landingpages; docker run -it --volume=$PWD:/src --link landingpages-db:db -p 5000:5000 web:latest nosetests -v'
 
 # Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# Landingpages env vars
+export DB_ENV_POSTGRES_USER='landingpages'
+export DB_ENV_POSTGRES_PASSWORD='landingpages'
+export DB_PORT_5432_TCP_ADDR=' '
+export DB_PORT_5432_TCP_PORT=' '
+
+# Start terminal with 256 colors
+[[ "$TERM" == "xterm" ]] && export TERM=xterm-256color /bin/zsh

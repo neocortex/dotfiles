@@ -11,6 +11,9 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'ervandew/supertab'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -18,7 +21,7 @@ filetype plugin indent on    " required
 
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages available in Debian.
-runtime! debian.vim
+"runtime! debian.vim
 
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
@@ -95,5 +98,11 @@ let g:pymode_indent = 1
 " Close preview window after autocompletion
 autocmd CompleteDone * pclose
 
-" Set colorscheme
-colorscheme torte
+" Make sure vim uses 256 if
+set t_Co=256
+
+" Colorscheme
+colorscheme molokai
+
+" For thinner indent-guides lines (toggle with \ig)
+let g:indent_guides_guide_size = 1
