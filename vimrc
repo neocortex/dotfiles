@@ -102,7 +102,11 @@ autocmd CompleteDone * pclose
 set t_Co=256
 
 " Colorscheme
-colorscheme molokai
+colorscheme molokai 
 
 " For thinner indent-guides lines (toggle with \ig)
 let g:indent_guides_guide_size = 1
+
+" Setup centralized backup and swap directory
+set backupdir=~/.vim/backup/
+set directory=~/.vim/backup/

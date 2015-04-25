@@ -107,4 +107,4 @@ export DB_PORT_5432_TCP_ADDR=' '
 export DB_PORT_5432_TCP_PORT=' '
 
 # Start terminal with 256 colors
-[[ "$TERM" == "xterm" ]] && export TERM=xterm-256color /bin/zsh
+[[ "$TERM" == "xterm" ]] && export TERM=xterm-256color
