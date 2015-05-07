@@ -110,3 +110,6 @@ let g:indent_guides_guide_size = 1
 " Setup centralized backup and swap directory
 set backupdir=~/.vim/backup/
 set directory=~/.vim/backup/
+
+" Turn off vim rope
+let g:pymode_rope = 0

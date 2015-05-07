@@ -102,9 +102,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # Landingpages env vars
 export DB_ENV_POSTGRES_USER='landingpages'
-export DB_ENV_POSTGRES_PASSWORD='landingpages'
-export DB_PORT_5432_TCP_ADDR=' '
-export DB_PORT_5432_TCP_PORT=' '
+export DB_ENV_POSTGRES_PASSWORD=''
+export DB_PORT_5432_TCP_ADDR=127.0.0.1
+export DB_PORT_5432_TCP_PORT=15432
 
 # Start terminal with 256 colors
 [[ "$TERM" == "xterm" ]] && export TERM=xterm-256color
