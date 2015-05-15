@@ -14,6 +14,8 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'kien/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -113,3 +115,4 @@ set directory=~/.vim/backup/
 
 " Turn off vim rope
 let g:pymode_rope = 0
+
