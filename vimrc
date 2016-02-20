@@ -71,7 +71,7 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
-" Use the system clipboard for copy/paste 
+" Use the system clipboard for copy/paste
 set clipboard=unnamed
 
 " Insert newline without entering insert mode (Shift-Enter)
@@ -102,7 +102,7 @@ autocmd CompleteDone * pclose
 set t_Co=256
 
 " Colorscheme
-colorschem molokai 
+colorschem molokai
 
 " For thinner indent-guides lines (toggle with \ig)
 let g:indent_guides_guide_size = 1
