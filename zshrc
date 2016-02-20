@@ -2,7 +2,7 @@
 if [ "$TMUX" = "" ]; then tmux -2; fi
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/rafael/.oh-my-zsh
+export ZSH=/Users/rafael/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -10,9 +10,7 @@ export ZSH=/home/rafael/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="rafael"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
+# Uncomment the 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
@@ -29,11 +27,9 @@ ZSH_THEME="rafael"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-#COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
+# Uncomment the following line if you want to disable marking untracked files # under VCS as dirty. This makes repository status check for large repositories # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
@@ -45,7 +41,7 @@ ZSH_THEME="rafael"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Virtualenvwrapper
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
@@ -63,17 +59,18 @@ plugins=(git, virtualenv, virtualenvwrapper, pip)
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
+export EDITOR='vim'
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
 #   export EDITOR='mvim'
 # fi
-
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch x86_64" # ssh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
@@ -84,27 +81,13 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# alias zshconfig="vim ~/.zshrc"
 
-# Resmio IPython alias
-alias ripython='python $HOME/resmio/resmio/manage.py shell_plus --pythonpath=/home/rafael/resmio/resmio'
-
-# Run resmio local server
-alias runresmio='$HOME/resmio/resmio/manage.py runserver 0.0.0.0:8000'
-
-# Run web container for landingpages
-alias runlpages='cd $HOME/resmio/landingpages; docker run -it --volume=$PWD:/src --link landingpages-db:db -p 5000:5000 web:latest python3 run.py'
-alias testlpages='cd $HOME/resmio/landingpages; docker run -it --volume=$PWD:/src --link landingpages-db:db -p 5000:5000 web:latest nosetests -v'
-
-# Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-# Landingpages env vars
-export DB_ENV_POSTGRES_USER='landingpages'
-export DB_ENV_POSTGRES_PASSWORD=''
-export DB_PORT_5432_TCP_ADDR=127.0.0.1
-export DB_PORT_5432_TCP_PORT=15432
+# Alias for dslabs server
+alias dslabs='ssh -i ~/me/dslabs/ds-admin.pem ubuntu@dslabs.wattx.io'
 
 # Start terminal with 256 colors
 [[ "$TERM" == "xterm" ]] && export TERM=xterm-256color
+
+# Anaconda python path
+export PATH="/Users/rafael/anaconda/bin:$PATH"
