@@ -3,19 +3,19 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
+Plugin 'klen/python-mode'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -23,7 +23,7 @@ filetype plugin indent on    " required
 
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages available in Debian.
-"runtime! debian.vim
+" runtime! debian.vim
 
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
@@ -47,7 +47,7 @@ endif
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
-set showcmd		" Show (partial) command in status line.
+set showcmd		    " Show (partial) command in status line.
 set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
@@ -71,19 +71,16 @@ if filereadable("/etc/vim/vimrc.local")
 endif
 
 " Use the system clipboard for copy/paste 
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 " Insert newline without entering insert mode (Shift-Enter)
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
 
 " Enable pathogen
-filetype off
-
+execute pathogen#infect()
 call pathogen#infect()
-call pathogen#helptags()
-
-filetype plugin indent on
+"call pathogen#helptags()
 
 " Navigate between splits with e.g. Ctrl+h instead of Ctrl+w+h
 nnoremap <C-J> <C-W><C-J>
@@ -116,3 +113,17 @@ set directory=~/.vim/backup/
 " Turn off vim rope
 let g:pymode_rope = 0
 
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" swap iTerm2 cursors in vim insert mode when using tmux 
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+" Set colorcolumn
+set colorcolumn=79
