@@ -16,6 +16,7 @@ Plugin 'ervandew/supertab'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'kien/ctrlp.vim'
 Plugin 'klen/python-mode'
+Plugin 'tpope/vim-commentary'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -101,7 +102,7 @@ autocmd CompleteDone * pclose
 set t_Co=256
 
 " Colorscheme
-colorscheme molokai 
+colorschem molokai 
 
 " For thinner indent-guides lines (toggle with \ig)
 let g:indent_guides_guide_size = 1
@@ -116,7 +117,7 @@ let g:pymode_rope = 0
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-" swap iTerm2 cursors in vim insert mode when using tmux 
+" swap iTerm2 cursors in vim insert mode when using tmux
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
@@ -127,3 +128,13 @@ endif
 
 " Set colorcolumn
 set colorcolumn=79
+
+" Set leader key to Space (instead of '\')
+let mapleader = "\<Space>"
+
+" Insert pdb linebreak using leader + p
+map <Leader>p :call InsertLine()<CR>
+function! InsertLine()
+  let trace = expand("import pdb; pdb.set_trace()")
+  execute "normal o".trace
+endfunction
