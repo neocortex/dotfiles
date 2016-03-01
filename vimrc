@@ -63,6 +63,7 @@ set expandtab		" Expand tab to spaces
 set shiftwidth=4	" When using the << or >> commands, shift lines by 4 spaces
 set cursorline		" Show a visual line under the cursor current line
 set textwidth=79    " Set maximum line width
+set ruler           " Show the current row and column of cursor
 let python_highlight_all = 1 " Enable all Python highlight features
 
 
