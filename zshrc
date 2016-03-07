@@ -84,10 +84,10 @@ export EDITOR='vim'
 # alias zshconfig="vim ~/.zshrc"
 
 # Pyspark IPython
-alias pyspark_nb='IPYTHON_OPTS="notebook" ~/spark-1.6.0-bin-hadoop2.6/bin/pyspark --master local\[4\] --driver-memory 6G --packages com.databricks:spark-csv_2.10:1.3.0 --jars ~/spark-timeseries/target/sparkts-0.3.0-SNAPSHOT-jar-with-dependencies.jar'
+alias pyspark_nb='IPYTHON_OPTS="notebook" ~/spark-1.6.0-bin-hadoop2.6/bin/pyspark --master local\[1\] --driver-memory 4G --executor-cores 1 --total-executor-cores 1 --packages com.databricks:spark-csv_2.10:1.3.0 --jars ~/spark-timeseries/target/sparkts-0.3.0-SNAPSHOT-jar-with-dependencies.jar'
 
 # Go to data-science repo
-alias ds='cd ~/wattx/data_science/data-science'
+alias goto_ds='cd ~/wattx/data_science/data-science'
 
 # Activate conda python virtualenvs
 alias py2='source activate py2'
