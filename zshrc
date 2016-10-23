@@ -10,7 +10,6 @@ export ZSH=/Users/rafael/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="rafael"
 
-# Uncomment the 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
@@ -64,13 +63,6 @@ export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 export EDITOR='vim'
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64" # ssh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
@@ -98,3 +90,8 @@ alias py3='source activate wattx'
 
 # Anaconda python path
 export PATH="/Users/rafael/anaconda/bin:$PATH"
+
+# jump whole words in shell
+bindkey -e
+bindkey '^[[1;9C' forward-word
+bindkey '^[[1;9D' backward-word

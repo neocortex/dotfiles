@@ -127,8 +127,6 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-" Set colorcolumn
-set colorcolumn=79
 
 " Set leader key to Space (instead of '\')
 let mapleader = "\<Space>"
@@ -139,3 +137,9 @@ function! InsertLine()
   let trace = expand("import pdb; pdb.set_trace()")
   execute "normal o".trace
 endfunction
+
+" Change max length of line in python-mode
+let g:pymode_options_max_line_length=90
+
+" Set colorcolumn
+set colorcolumn=79
